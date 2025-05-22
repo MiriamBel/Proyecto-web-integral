@@ -10,8 +10,8 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'Pangular';
   constructor(){
-  console.log('Funciones de prueba');
-  console.warn("Advertencia");
-  console.log("Prueba de conflictos")
-}
+    console.log('Nuevas funciones');
+    console.warn("Cuidado");
+     console.log("Prueba de conflictos")
+  }
 }
