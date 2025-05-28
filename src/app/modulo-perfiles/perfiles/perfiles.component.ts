@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './perfiles.component.css'
 })
 export class PerfilesComponent {
+  
+newperfil(){
 
 }
+  }
+
