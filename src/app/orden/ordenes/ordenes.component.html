@@ -1,1 +1,42 @@
-<p>ordenes works!</p>
+<div class="ordenes-container">
+  <h2>Órdenes</h2>
+
+  <!-- Filtro o búsqueda -->
+  <div class="ordenes-filtros">
+    <input type="text" placeholder="Buscar por número de orden..." />
+    <select>
+      <option value="">Estado</option>
+      <option value="pendiente">Pendiente</option>
+      <option value="procesando">Procesando</option>
+      <option value="completado">Completado</option>
+      <option value="cancelado">Cancelado</option>
+    </select>
+  </div>
+
+  <!-- Tabla de órdenes -->
+  <table class="tabla-ordenes">
+    <thead>
+      <tr>
+        <th>N° Orden</th>
+        <th>Cliente</th>
+        <th>Fecha</th>
+        <th>Total</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>#12345</td>
+        <td>Juan Pérez</td>
+        <td>2025-05-28</td>
+        <td>$150.00</td>
+        <td><span class="estado estado-pendiente">Pendiente</span></td>
+        <td>
+          <button>Ver</button>
+          <button>Editar</button>
+        </td>
+      </tr>
+      <!-- Más filas aquí -->
+    </tbody>
+  </table>
