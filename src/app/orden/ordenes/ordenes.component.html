@@ -1,11 +1,16 @@
 <div class="ordenes-container">
   <h2>Órdenes</h2>
 
-  <!-- Filtro o búsqueda -->
+  <!-- Filtros -->
   <div class="ordenes-filtros">
-    <input type="text" placeholder="Buscar por número de orden..." />
-    <select>
-      <option value="">Estado</option>
+    <input
+      type="text"
+      placeholder="Buscar por número de orden..."
+      [(ngModel)]="busqueda"
+      (input)="filtrarOrdenes()"
+    />
+    <select [(ngModel)]="estadoSeleccionado" (change)="filtrarOrdenes()">
+      <option value="">Todos los estados</option>
       <option value="pendiente">Pendiente</option>
       <option value="procesando">Procesando</option>
       <option value="completado">Completado</option>
@@ -13,7 +18,7 @@
     </select>
   </div>
 
-  <!-- Tabla de órdenes -->
+  <!-- Tabla -->
   <table class="tabla-ordenes">
     <thead>
       <tr>
@@ -26,17 +31,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>#12345</td>
-        <td>Juan Pérez</td>
-        <td>2025-05-28</td>
-        <td>$150.00</td>
-        <td><span class="estado estado-pendiente">Pendiente</span></td>
+      <tr *ngFor="let orden of ordenesFiltradas">
+        <td>#{{ orden.numero }}</td>
+        <td>{{ orden.cliente }}</td>
+        <td>{{ orden.fecha }}</td>
+        <td>${{ orden.total.toFixed(2) }}</td>
         <td>
-          <button>Ver</button>
-          <button>Editar</button>
+          <span class="estado" [ngClass]="'estado-' + orden.estado">
+            {{ orden.estado }}
+          </span>
+        </td>
+        <td>
+          <button (click)="verOrden(orden.numero)">Ver</button>
+          <button (click)="editarOrden(orden.numero)">Editar</button>
         </td>
       </tr>
-      <!-- Más filas aquí -->
     </tbody>
   </table>
+</div>
